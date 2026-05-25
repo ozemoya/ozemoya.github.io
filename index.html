@@ -1,188 +1,529 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script defer src="ozemoya.js"></script>
-    <meta charset="UTF-8">
-    <title>ozemoya</title>
-    <link rel="icon" href="images/caticont.png">
-    <link rel="stylesheet" href="ozemoya.css">
-  </head>
-  <body>
-    <section class="desktop-apps">
-      <div class="dapp dapp1">
-        <img src="images/Projects.png" alt="" />
-        <p class="text-black-50">Projects</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ozemoya</title>
+  <link rel="icon" href="images/caticont.png">
+  <link rel="stylesheet" href="ozemoya.css">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+<!-- ── SVG ICON LIBRARY ─────────────────────────────────── -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+
+    <symbol id="ico-folder" viewBox="0 0 32 32">
+      <rect x="1" y="8" width="13" height="4" fill="#FFC83D"/>
+      <rect x="1" y="11" width="30" height="19" fill="#FFC83D"/>
+      <rect x="2" y="11" width="28" height="2" fill="#FFE580"/>
+      <rect x="1" y="13" width="2" height="16" fill="#FFE580"/>
+      <rect x="29" y="12" width="2" height="18" fill="#996600"/>
+      <rect x="3" y="28" width="26" height="2" fill="#996600"/>
+      <rect x="5" y="17" width="20" height="2" fill="#FFFFC0" opacity="0.6"/>
+      <rect x="5" y="21" width="15" height="2" fill="#FFFFC0" opacity="0.6"/>
+    </symbol>
+
+    <symbol id="ico-gear" viewBox="0 0 32 32">
+      <rect x="13" y="0" width="6" height="5" fill="#A0A0A0"/>
+      <rect x="13" y="27" width="6" height="5" fill="#A0A0A0"/>
+      <rect x="0" y="13" width="5" height="6" fill="#A0A0A0"/>
+      <rect x="27" y="13" width="5" height="6" fill="#A0A0A0"/>
+      <rect x="4"  y="4"  width="5" height="5" fill="#A0A0A0"/>
+      <rect x="23" y="4"  width="5" height="5" fill="#A0A0A0"/>
+      <rect x="4"  y="23" width="5" height="5" fill="#A0A0A0"/>
+      <rect x="23" y="23" width="5" height="5" fill="#A0A0A0"/>
+      <rect x="6" y="6" width="20" height="20" fill="#A0A0A0"/>
+      <rect x="6" y="6" width="20" height="3" fill="#D0D0D0"/>
+      <rect x="6" y="6" width="3" height="20" fill="#D0D0D0"/>
+      <rect x="23" y="9" width="3" height="17" fill="#606060"/>
+      <rect x="9" y="23" width="14" height="3" fill="#606060"/>
+      <rect x="12" y="12" width="8" height="8" fill="#404040"/>
+      <rect x="13" y="13" width="6" height="6" fill="#1A1A1A"/>
+    </symbol>
+
+    <symbol id="ico-book" viewBox="0 0 32 32">
+      <rect x="0" y="2" width="7" height="28" fill="#000080"/>
+      <rect x="0" y="2" width="3" height="28" fill="#2020CC"/>
+      <rect x="2" y="7"  width="6" height="3" fill="#C0C0C0"/>
+      <rect x="2" y="15" width="6" height="3" fill="#C0C0C0"/>
+      <rect x="2" y="23" width="6" height="3" fill="#C0C0C0"/>
+      <rect x="6" y="3" width="25" height="26" fill="#F8F8FF"/>
+      <rect x="8" y="5" width="19" height="5" fill="#000080"/>
+      <rect x="9" y="6" width="9" height="3" fill="#FFFFFF"/>
+      <rect x="8" y="13" width="18" height="1" fill="#AAAACC"/>
+      <rect x="8" y="16" width="14" height="1" fill="#AAAACC"/>
+      <rect x="8" y="19" width="16" height="1" fill="#AAAACC"/>
+      <rect x="8" y="22" width="12" height="1" fill="#AAAACC"/>
+      <rect x="8" y="25" width="15" height="1" fill="#AAAACC"/>
+      <rect x="30" y="4" width="1" height="24" fill="#808080"/>
+      <rect x="7"  y="28" width="23" height="1" fill="#808080"/>
+    </symbol>
+
+    <symbol id="ico-cd" viewBox="0 0 32 32">
+      <rect x="8"  y="1"  width="16" height="30" fill="#D8D8D8"/>
+      <rect x="4"  y="5"  width="24" height="22" fill="#D8D8D8"/>
+      <rect x="5"  y="3"  width="22" height="26" fill="#D8D8D8"/>
+      <rect x="6"  y="4"  width="3" height="24" fill="#FF8080" opacity="0.5"/>
+      <rect x="9"  y="3"  width="3" height="26" fill="#FFCC44" opacity="0.5"/>
+      <rect x="12" y="2"  width="3" height="28" fill="#80FF80" opacity="0.5"/>
+      <rect x="15" y="2"  width="2" height="28" fill="#80FFFF" opacity="0.5"/>
+      <rect x="18" y="2"  width="3" height="28" fill="#8080FF" opacity="0.5"/>
+      <rect x="21" y="3"  width="3" height="26" fill="#FF80FF" opacity="0.5"/>
+      <rect x="24" y="4"  width="2" height="24" fill="#FF8888" opacity="0.5"/>
+      <rect x="10" y="9"  width="12" height="14" fill="#909090"/>
+      <rect x="9"  y="10" width="14" height="12" fill="#909090"/>
+      <rect x="14" y="14" width="4" height="4" fill="#202020"/>
+      <rect x="15" y="15" width="2" height="2" fill="#000000"/>
+    </symbol>
+
+    <symbol id="ico-robot" viewBox="0 0 32 32">
+      <rect x="15" y="0" width="2" height="4" fill="#909090"/>
+      <rect x="13" y="0" width="6" height="2" fill="#FF3333"/>
+      <rect x="4"  y="4"  width="24" height="17" fill="#C0C0C0"/>
+      <rect x="4"  y="4"  width="24" height="2" fill="#E8E8E8"/>
+      <rect x="4"  y="4"  width="2" height="17" fill="#E8E8E8"/>
+      <rect x="26" y="6"  width="2" height="15" fill="#808080"/>
+      <rect x="6"  y="19" width="20" height="2" fill="#808080"/>
+      <rect x="7"  y="8"  width="7" height="7" fill="#404040"/>
+      <rect x="8"  y="9"  width="5" height="5" fill="#00CCFF"/>
+      <rect x="9"  y="10" width="3" height="3" fill="#0055CC"/>
+      <rect x="9"  y="10" width="1" height="1" fill="#FFFFFF"/>
+      <rect x="18" y="8"  width="7" height="7" fill="#404040"/>
+      <rect x="19" y="9"  width="5" height="5" fill="#00CCFF"/>
+      <rect x="20" y="10" width="3" height="3" fill="#0055CC"/>
+      <rect x="20" y="10" width="1" height="1" fill="#FFFFFF"/>
+      <rect x="9"  y="17" width="14" height="2" fill="#404040"/>
+      <rect x="8"  y="16" width="2" height="2" fill="#404040"/>
+      <rect x="22" y="16" width="2" height="2" fill="#404040"/>
+      <rect x="8"  y="21" width="16" height="10" fill="#A0A0A0"/>
+      <rect x="8"  y="21" width="16" height="2" fill="#C4C4C4"/>
+      <rect x="11" y="24" width="10" height="5" fill="#000080"/>
+      <rect x="12" y="25" width="8"  height="3" fill="#0000AA"/>
+    </symbol>
+
+    <symbol id="ico-monitor" viewBox="0 0 32 32">
+      <rect x="1"  y="2"  width="30" height="19" fill="#C0C0C0"/>
+      <rect x="1"  y="2"  width="30" height="2" fill="#E0E0E0"/>
+      <rect x="1"  y="2"  width="2" height="19" fill="#E0E0E0"/>
+      <rect x="29" y="4"  width="2" height="17" fill="#808080"/>
+      <rect x="3"  y="19" width="26" height="2" fill="#808080"/>
+      <rect x="3"  y="4"  width="26" height="14" fill="#404040"/>
+      <rect x="4"  y="5"  width="11" height="6" fill="#CC2222"/>
+      <rect x="16" y="5"  width="12" height="6" fill="#22AA22"/>
+      <rect x="4"  y="12" width="11" height="5" fill="#2244CC"/>
+      <rect x="16" y="12" width="12" height="5" fill="#CCAA00"/>
+      <rect x="15" y="5"  width="2" height="12" fill="#1A1A1A"/>
+      <rect x="4"  y="11" width="24" height="2" fill="#1A1A1A"/>
+      <rect x="27" y="17" width="2" height="2" fill="#00FF44"/>
+      <rect x="13" y="21" width="6" height="3" fill="#A0A0A0"/>
+      <rect x="8"  y="24" width="16" height="5" fill="#C0C0C0"/>
+      <rect x="8"  y="24" width="16" height="1" fill="#E0E0E0"/>
+      <rect x="8"  y="28" width="16" height="1" fill="#808080"/>
+    </symbol>
+
+    <symbol id="ico-trash" viewBox="0 0 32 32">
+      <rect x="12" y="4"  width="8" height="4" fill="#C0C0C0"/>
+      <rect x="12" y="4"  width="8" height="1" fill="#E0E0E0"/>
+      <rect x="12" y="7"  width="8" height="1" fill="#808080"/>
+      <rect x="3"  y="7"  width="26" height="4" fill="#C0C0C0"/>
+      <rect x="3"  y="7"  width="26" height="1" fill="#E0E0E0"/>
+      <rect x="3"  y="10" width="26" height="1" fill="#808080"/>
+      <rect x="5"  y="11" width="22" height="18" fill="#C0C0C0"/>
+      <rect x="5"  y="11" width="2" height="18" fill="#E0E0E0"/>
+      <rect x="5"  y="11" width="22" height="2" fill="#E0E0E0"/>
+      <rect x="25" y="13" width="2" height="16" fill="#808080"/>
+      <rect x="7"  y="27" width="18" height="2" fill="#808080"/>
+      <rect x="9"  y="13" width="2" height="13" fill="#A8A8A8"/>
+      <rect x="14" y="13" width="2" height="13" fill="#A8A8A8"/>
+      <rect x="19" y="13" width="2" height="13" fill="#A8A8A8"/>
+    </symbol>
+
+    <symbol id="ico-doc" viewBox="0 0 32 32">
+      <rect x="4"  y="1"  width="22" height="30" fill="#FFFFFF"/>
+      <rect x="20" y="1"  width="6"  height="6" fill="#D0D0D0"/>
+      <rect x="20" y="6"  width="6"  height="1" fill="#A0A0A0"/>
+      <rect x="20" y="1"  width="1"  height="6" fill="#A0A0A0"/>
+      <rect x="25" y="2"  width="1"  height="29" fill="#C0C0C0"/>
+      <rect x="5"  y="30" width="20" height="1" fill="#C0C0C0"/>
+      <rect x="7"  y="9"  width="16" height="2" fill="#000080"/>
+      <rect x="7"  y="14" width="16" height="1" fill="#909090"/>
+      <rect x="7"  y="17" width="18" height="1" fill="#909090"/>
+      <rect x="7"  y="20" width="13" height="1" fill="#909090"/>
+      <rect x="7"  y="23" width="15" height="1" fill="#909090"/>
+      <rect x="7"  y="26" width="11" height="1" fill="#909090"/>
+    </symbol>
+
+    <symbol id="ico-info" viewBox="0 0 32 32">
+      <rect x="6"  y="2"  width="20" height="28" fill="#000080"/>
+      <rect x="2"  y="6"  width="28" height="20" fill="#000080"/>
+      <rect x="4"  y="4"  width="24" height="24" fill="#000080"/>
+      <rect x="4"  y="4"  width="24" height="2" fill="#2020CC"/>
+      <rect x="4"  y="4"  width="2" height="24" fill="#2020CC"/>
+      <rect x="26" y="6"  width="2" height="22" fill="#000040"/>
+      <rect x="6"  y="26" width="20" height="2" fill="#000040"/>
+      <rect x="14" y="7"  width="4" height="4" fill="#FFFFFF"/>
+      <rect x="12" y="13" width="8" height="11" fill="#FFFFFF"/>
+      <rect x="11" y="13" width="10" height="2" fill="#FFFFFF"/>
+      <rect x="11" y="22" width="10" height="2" fill="#FFFFFF"/>
+    </symbol>
+
+  </defs>
+</svg>
+
+<!-- ── LOADING SCREEN ──────────────────────────────────── -->
+<div class="loading-screen" id="loading-screen">
+  <div class="loading-box">
+    <svg viewBox="0 0 32 32" width="48" height="48" style="image-rendering:pixelated;shape-rendering:crispEdges"><use href="#ico-monitor"/></svg>
+    <p class="loading-title">ozemoya</p>
+    <p class="loading-sub">Starting Windows 97...</p>
+    <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+    <img src="images/catdancegif.gif" alt="" class="loading-cat"/>
+  </div>
+</div>
+
+<!-- ── DESKTOP ────────────────────────────────────────── -->
+<div class="desktop" id="desktop">
+
+  <!-- ── Desktop Icons ── -->
+  <div class="desktop-icons">
+
+    <div class="dapp" data-window="projects-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-folder"/></svg>
+      <span>Projects</span>
+    </div>
+    <div class="dapp" data-window="services-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-gear"/></svg>
+      <span>Services</span>
+    </div>
+    <div class="dapp" data-window="contacts-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-book"/></svg>
+      <span>Contacts</span>
+    </div>
+    <div class="dapp" data-window="music-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-cd"/></svg>
+      <span>Music</span>
+    </div>
+    <div class="dapp" data-window="ai-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-robot"/></svg>
+      <span>OzeBot</span>
+    </div>
+    <div class="dapp" data-window="mypc-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-monitor"/></svg>
+      <span>My Computer</span>
+    </div>
+    <div class="dapp" data-window="resume-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-doc"/></svg>
+      <span>Resume.txt</span>
+    </div>
+    <div class="dapp" data-window="recycle-window" tabindex="0">
+      <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-trash"/></svg>
+      <span>Recycle Bin</span>
+    </div>
+
+  </div>
+
+  <!-- ── PROJECTS WINDOW ── -->
+  <div class="win97-window" id="projects-window">
+    <div class="title-bar" data-window-id="projects-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-folder"/></svg>
+      <div class="title-bar-text">Projects</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="projects-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="projects-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="projects-window">&#10005;</button>
       </div>
-      <div class="dapp dapp2">
-        <img src="images/Services.png" alt="" />
-        <p class="text-black-50">Services</p>
+    </div>
+    <div class="window-menu-bar">
+      <span>File</span><span>Edit</span><span>View</span><span>Help</span>
+    </div>
+    <div class="window-body" style="padding:4px;">
+      <div class="project-grid">
+        <a href="https://faber-bay.vercel.app" target="_blank" rel="noopener" class="project-item">
+          <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-folder"/></svg>
+          <span>Faber Bay</span>
+        </a>
+        <a href="https://kumomi.vercel.app" target="_blank" rel="noopener" class="project-item">
+          <svg viewBox="0 0 32 32" width="48" height="48" class="dapp-svg"><use href="#ico-folder"/></svg>
+          <span>Kumomi</span>
+        </a>
       </div>
-      <div class="dapp dapp3" id="contacts">
-        <img src="images/Contacts.png" alt="" />
-        <p class="text-black-50">Contacts</p>
+    </div>
+    <div class="status-bar"><span>2 object(s)</span></div>
+  </div>
+
+  <!-- ── SERVICES WINDOW ── -->
+  <div class="win97-window" id="services-window">
+    <div class="title-bar" data-window-id="services-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-gear"/></svg>
+      <div class="title-bar-text">Services</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="services-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="services-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="services-window">&#10005;</button>
       </div>
-      <div class="dapp dapp4" id="music">
-        <img src="images/Music.png" alt="" />
-        <p class="text-black-50">Music</p>
+    </div>
+    <div class="window-menu-bar"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+    <div class="window-body services-body">
+      <div class="service-row"><svg viewBox="0 0 32 32" width="20" height="20"><use href="#ico-monitor"/></svg> UI &amp; UX Design</div>
+      <div class="service-row"><svg viewBox="0 0 32 32" width="20" height="20"><use href="#ico-gear"/></svg> Front-End Development</div>
+      <div class="service-row"><svg viewBox="0 0 32 32" width="20" height="20"><use href="#ico-doc"/></svg> Graphic Design</div>
+      <div class="service-row"><svg viewBox="0 0 32 32" width="20" height="20"><use href="#ico-info"/></svg> Brand Identity</div>
+    </div>
+    <div class="status-bar"><span>4 service(s)</span></div>
+  </div>
+
+  <!-- ── CONTACTS WINDOW ── -->
+  <div class="win97-window" id="contacts-window">
+    <div class="title-bar" data-window-id="contacts-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-book"/></svg>
+      <div class="title-bar-text">Contacts</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="contacts-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="contacts-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="contacts-window">&#10005;</button>
       </div>
-      <div class="position-sticky bottom-0 start-0">
-        <div class="spotify-container position-sticky bottom-0 start-50">
-          <iframe src="https://open.spotify.com/embed/album/1AJtMVPbKTiw7OHOa9oVCx?utm_source=generator" width="300" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="window-menu-bar"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+    <div class="window-body contacts-body">
+      <table class="contacts-table">
+        <tr><td class="contact-label">Email</td><td><a href="mailto:myleskmiller@gmail.com">myleskmiller@gmail.com</a></td></tr>
+        <tr><td class="contact-label">LinkedIn</td><td><a href="https://www.linkedin.com/in/myles-miller-669516263/" target="_blank" rel="noopener">linkedin.com/in/myles-miller</a></td></tr>
+        <tr><td class="contact-label">Phone</td><td>678-559-2304</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── MUSIC WINDOW ── -->
+  <div class="win97-window" id="music-window">
+    <div class="title-bar" data-window-id="music-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-cd"/></svg>
+      <div class="title-bar-text">Music Player</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="music-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="music-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="music-window">&#10005;</button>
+      </div>
+    </div>
+    <div class="window-body" style="padding:4px;background:#000;">
+      <iframe src="https://open.spotify.com/embed/album/1AJtMVPbKTiw7OHOa9oVCx?utm_source=generator" width="300" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+  </div>
+
+  <!-- ── AI ASSISTANT WINDOW ── -->
+  <div class="win97-window ai-window-wrap" id="ai-window">
+    <div class="title-bar" data-window-id="ai-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-robot"/></svg>
+      <div class="title-bar-text">OzeBot — AI Assistant</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="ai-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="ai-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="ai-window">&#10005;</button>
+      </div>
+    </div>
+    <div class="window-menu-bar"><span>Chat</span><span>Help</span></div>
+    <div class="window-body ai-body">
+      <div class="ai-chat-log" id="chat-log">
+        <div class="ai-message bot-message">
+          <svg viewBox="0 0 32 32" width="22" height="22" class="bot-avatar"><use href="#ico-robot"/></svg>
+          <span>Hi! I'm OzeBot. Ask me about Myles, his projects, or how to get in touch!</span>
         </div>
       </div>
-    </section>
-    <div class="window">
-      <div class="title-bar">
-        <div class="title-bar-text">Contacts</div>
-        <button id="WindowClose" class="position-absolute top-0 end-0 row-md-0 p-0" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="window-body">
-        <p class="user-select-none">Email: myleskmiller@gmail.com</p>
-        <p class="user-select-none"><a href="https://www.linkedin.com/in/myles-miller-669516263/">Linkedin</a></p>
-        <p class="user-select-none">Phone number: 678-559-2304</p>
+      <div class="ai-input-row">
+        <input type="text" id="ai-input" class="ai-input" placeholder="Type a message..." autocomplete="off"/>
+        <button id="ai-send" class="win97-btn">Send</button>
       </div>
     </div>
-    <span class="taskbar border-top">
-      <div class="Start">
-        <button class="start-button">
-          <img src="images/windowstart.png" alt="" />
-          <span>Start</span>
-        </button>
+  </div>
+
+  <!-- ── MY COMPUTER WINDOW ── -->
+  <div class="win97-window" id="mypc-window" style="width:380px;">
+    <div class="title-bar" data-window-id="mypc-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-monitor"/></svg>
+      <div class="title-bar-text">My Computer</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="mypc-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="mypc-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="mypc-window">&#10005;</button>
       </div>
-      <div id="Date"></div>
-      <div id="Time"></div>
-      <div class="ticker-wrap">
-        <div id="headline" class="animated-headline"></div>
-      </div>
-    </span>
-    <div class="loading-screen">
-      <div class="dot" id="dot1"></div>
-      <div class="dot" id="dot2"></div>
-      <div class="dot" id="dot3"></div>
-      <span class="catdance position-absolute bottom-0 start-50 translate-middle-x">
-        <img src="images/catdancegif.gif" alt="">
-      </span>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <script> $(document).ready(() => {
-      const $closeButton = $("#WindowClose");
-    
-      // Get the div that contains the "Contacts" text
-      const $contactsDiv = $(".dapp3");
-      // Get the div that contains the "Music" text
-      const $musicDiv = $(".dapp4");
-      // Get the .window div
-      const $windowDiv = $(".window");
-      // Get the .spotify-container div
-      const $spotifyDiv = $(".spotify-container");
-    
-      // Hide the window by default
-      $windowDiv.hide();
-      $spotifyDiv.hide();
-    
-      $("#WindowClose").on("click", () => {
-        $windowDiv.hide();
-      });
-    
-      $contactsDiv.on("click", () => {
-        $windowDiv.show();
-      });
-    
-      $musicDiv.on("click", () => {
-        $spotifyDiv.show();
-      });
-    
-      // Update clock function
-      const updateTime = () => {
-        const $TimeElement = $("#Time");
-        const now = new Date();
-        $TimeElement.text(now.toLocaleTimeString());
-      };
-    
-      updateTime();
-      setInterval(updateTime, 1000);
-    
-      // Update date function
-      const updateDate = () => {
-        const $TimeElement = $("#Date");
-        const now = new Date();
-        $TimeElement.text(now.toLocaleDateString());
-      };
-    
-      updateDate();
-      setInterval(updateDate, 1000);
-    
-      $(window).on('beforeunload', (event) => {
-        console.log("Before unload");
-        event.returnValue = 'Are you sure you want to leave?';
-        return 'Are you sure you want to leave?';
-      });
-    
-      $(window).on('load', () => {
-        const $headline = $('#headline');
-        $headline.addClass('animated-headline'); // Ensures the animation starts on load
-    
-        // Initialize the news ticker
-        initializeNewsTicker();
-    
-        // Show loading screen
-        $('.loading-screen').show();
-    
-        // Hide loading screen after 8 seconds
-        setTimeout(() => {
-          $('.loading-screen').hide();
-        }, 8000);
-      });
-    
-      const apiKey = '3702918983a4465894f86153fcaabf02';  // Replace with your actual API key
-      const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
-    
-      const fetchNews = async () => {
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          return data.articles;
-        } catch (error) {
-          console.error('Error fetching news:', error);
-        }
-      };
-    
-      const updateTicker = (headlines) => {
-        const $headlineDiv = $('#headline');
-        let currentHeadline = 0;
-    
-        $headlineDiv.text(headlines[currentHeadline].title); // Initialize with the first headline
-    
-        setInterval(() => {
-          currentHeadline = (currentHeadline + 1) % headlines.length; // Cycle through headlines
-          $headlineDiv.text(headlines[currentHeadline].title);
-        }, 10000); // Update headline every 10 seconds
-      };
-    
-      const initializeNewsTicker = async () => {
-        const articles = await fetchNews();
-        if (articles.length) {
-          updateTicker(articles);
-        }
-      };
-    
-      $(window).on('resize',() => {
-        console.log($(window).width(), $(window).height());
-        if ($(window).width() <= 500) {
-          $(body).css("ozemoyalogo.gif").hide();
-        } else {
-          $(body).css("ozemoyalogo.gif").show(); 
-        } 
-      });
-     
-      console.log("jQuery is loaded");
-    });
-    </script>
-  </body>
+    <div class="window-menu-bar"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+    <div class="window-body mypc-body">
+      <div class="mypc-left">
+        <svg viewBox="0 0 32 32" width="64" height="64" style="image-rendering:pixelated;shape-rendering:crispEdges;display:block;margin:0 auto 8px"><use href="#ico-monitor"/></svg>
+        <div class="mypc-name">Myles Miller</div>
+        <div class="mypc-role">Designer &amp; Developer</div>
+      </div>
+      <div class="mypc-divider"></div>
+      <div class="mypc-right">
+        <table class="sysinfo-table">
+          <tr><td>Processor</td><td>Creative Cortex™ 9000</td></tr>
+          <tr><td>RAM</td><td>64 cups of coffee</td></tr>
+          <tr><td>Location</td><td>Atlanta, GA</td></tr>
+          <tr><td>Stack</td><td>HTML, CSS, JS, Design</td></tr>
+          <tr><td>Available</td><td><span class="green-dot">●</span> Yes — for hire!</td></tr>
+          <tr><td>OS Version</td><td>ozemoya 97</td></tr>
+        </table>
+        <div class="mypc-buttons">
+          <button class="win97-btn" onclick="openWindow('projects-window')">View Projects</button>
+          <button class="win97-btn" onclick="openWindow('contacts-window')">Contact</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RESUME / NOTEPAD WINDOW ── -->
+  <div class="win97-window" id="resume-window" style="width:420px;">
+    <div class="title-bar" data-window-id="resume-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-doc"/></svg>
+      <div class="title-bar-text">Resume.txt — Notepad</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="resume-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="resume-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="resume-window">&#10005;</button>
+      </div>
+    </div>
+    <div class="window-menu-bar"><span>File</span><span>Edit</span><span>Format</span><span>Help</span></div>
+    <div class="window-body notepad-body">
+      <pre class="notepad-text">====================================
+  MYLES MILLER — DESIGNER / DEV
+====================================
+
+ABOUT
+-----
+Creative developer and designer based
+in Atlanta, GA. I build things that
+look good and work well.
+
+SKILLS
+------
+  Front-End:  HTML, CSS, JavaScript
+  Design:     UI/UX, Figma, Branding
+  Tools:      VS Code, Git, Vercel
+
+PROJECTS
+--------
+  * Faber Bay   — faber-bay.vercel.app
+  * Kumomi      — kumomi.vercel.app
+  * ozemoya     — ozemoya.github.io
+
+CONTACT
+-------
+  Email:  myleskmiller@gmail.com
+  Phone:  678-559-2304
+  LinkedIn: /in/myles-miller-669516263
+
+====================================
+Available for freelance &amp; full-time.
+====================================</pre>
+    </div>
+  </div>
+
+  <!-- ── RECYCLE BIN WINDOW ── -->
+  <div class="win97-window" id="recycle-window">
+    <div class="title-bar" data-window-id="recycle-window">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-trash"/></svg>
+      <div class="title-bar-text">Recycle Bin</div>
+      <div class="title-bar-controls">
+        <button class="win-btn" data-action="minimize" data-target="recycle-window">&#8211;</button>
+        <button class="win-btn" data-action="maximize" data-target="recycle-window">&#9633;</button>
+        <button class="win-btn close-btn" data-action="close" data-target="recycle-window">&#10005;</button>
+      </div>
+    </div>
+    <div class="window-menu-bar"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+    <div class="window-body recycle-body">
+      <svg viewBox="0 0 32 32" width="48" height="48" style="image-rendering:pixelated;shape-rendering:crispEdges;display:block;margin:0 auto 10px"><use href="#ico-trash"/></svg>
+      <p style="text-align:center;font-size:11px;">Recycle Bin is empty.</p>
+      <p style="text-align:center;font-size:10px;color:#808080;margin-top:6px;">No bad ideas here — only good ones.</p>
+    </div>
+    <div class="status-bar"><span>0 object(s)</span></div>
+  </div>
+
+  <!-- ── WELCOME DIALOG ── -->
+  <div class="win97-window dialog-window" id="welcome-dialog" style="width:320px;">
+    <div class="title-bar" data-window-id="welcome-dialog">
+      <svg viewBox="0 0 32 32" width="14" height="14" class="tb-icon"><use href="#ico-info"/></svg>
+      <div class="title-bar-text">Welcome to ozemoya!</div>
+      <div class="title-bar-controls">
+        <button class="win-btn close-btn" data-action="close" data-target="welcome-dialog">&#10005;</button>
+      </div>
+    </div>
+    <div class="window-body dialog-body">
+      <div class="dialog-content">
+        <svg viewBox="0 0 32 32" width="40" height="40" style="image-rendering:pixelated;shape-rendering:crispEdges;flex-shrink:0"><use href="#ico-info"/></svg>
+        <div>
+          <p style="margin-bottom:6px;font-weight:bold;">Welcome to Myles Miller's Portfolio</p>
+          <p style="color:#404040;">Double-click any icon to open it.<br>Drag windows to move them around.</p>
+        </div>
+      </div>
+      <div class="dialog-buttons">
+        <button class="win97-btn dialog-ok" data-action="close" data-target="welcome-dialog">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TASKBAR ── -->
+  <div class="taskbar">
+    <button class="start-button" id="start-btn">
+      <img src="images/windowstart.png" alt="" style="width:18px;height:18px;image-rendering:pixelated"/>
+      <span>Start</span>
+    </button>
+    <div class="taskbar-sep"></div>
+    <div class="taskbar-apps" id="taskbar-apps"></div>
+    <div class="taskbar-spacer"></div>
+    <div class="ticker-wrap"><div id="headline">Welcome to ozemoya.github.io</div></div>
+    <div class="taskbar-tray"><span id="Time"></span></div>
+  </div>
+
+  <!-- ── START MENU ── -->
+  <div class="start-menu" id="start-menu">
+    <div class="start-menu-sidebar"><span>ozemoya</span></div>
+    <div class="start-menu-items">
+      <div class="start-menu-item" data-open="mypc-window">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-monitor"/></svg> My Computer
+      </div>
+      <div class="start-menu-item" data-open="projects-window">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-folder"/></svg> Projects
+      </div>
+      <div class="start-menu-item" data-open="resume-window">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-doc"/></svg> Resume.txt
+      </div>
+      <div class="start-menu-item" data-open="services-window">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-gear"/></svg> Services
+      </div>
+      <div class="start-menu-item" data-open="contacts-window">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-book"/></svg> Contacts
+      </div>
+      <div class="start-menu-item" data-open="music-window">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-cd"/></svg> Music Player
+      </div>
+      <div class="start-menu-item" data-open="ai-window">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-robot"/></svg> OzeBot
+      </div>
+      <div class="start-menu-sep"></div>
+      <div class="start-menu-item danger" id="shutdown-btn">
+        <svg viewBox="0 0 32 32" width="18" height="18"><use href="#ico-trash"/></svg> Shut Down...
+      </div>
+    </div>
+  </div>
+
+</div><!-- /desktop -->
+
+<script src="ozemoya.js"></script>
+<script>
+if (location.search.includes('preview=active')) {
+  setTimeout(() => {
+    openWindow('projects-window');
+    openWindow('ai-window');
+    openWindow('mypc-window');
+    openWindow('contacts-window');
+  }, 4200);
+}
+if (location.search.includes('preview=boot')) {
+  document.getElementById('loading-screen').style.animation = 'none';
+  document.getElementById('loading-screen').style.opacity = '1';
+}
+</script>
+</body>
 </html>
