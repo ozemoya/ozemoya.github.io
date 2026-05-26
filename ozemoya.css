@@ -533,6 +533,43 @@ body {
   flex-shrink: 0;
 }
 
+/* Quick Launch bar */
+.ql-bar {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 0 3px;
+  flex-shrink: 0;
+}
+
+.ql-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 2px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ql-btn:hover {
+  border-top:    1px solid var(--white);
+  border-left:   1px solid var(--white);
+  border-right:  1px solid var(--ddgray);
+  border-bottom: 1px solid var(--ddgray);
+  background: var(--gray);
+}
+
+.ql-btn:active {
+  border-top:    1px solid var(--ddgray);
+  border-left:   1px solid var(--ddgray);
+  border-right:  1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
 .taskbar-apps {
   display: flex;
   gap: 2px;
