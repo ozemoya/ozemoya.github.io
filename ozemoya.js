@@ -159,7 +159,7 @@
   ================================================================ */
 
   document.addEventListener('click', e => {
-    const btn = e.target.closest('.win-btn');
+    const btn = e.target.closest('.win-btn, [data-action]');
     if (!btn) return;
     const action = btn.dataset.action;
     const target = btn.dataset.target;
