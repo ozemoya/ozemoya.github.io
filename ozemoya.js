@@ -17,6 +17,7 @@
     'ai-window':       { label: 'OzeBot',         sym: 'ico-robot'   },
     'mypc-window':     { label: 'My Computer',    sym: 'ico-monitor' },
     'resume-window':   { label: 'Resume.txt',     sym: 'ico-doc'     },
+    'design-window':   { label: 'Design Work',    sym: 'ico-design'  },
     'recycle-window':  { label: 'Recycle Bin',    sym: 'ico-trash'   },
     'welcome-dialog':  { label: 'Welcome',        sym: 'ico-info'    },
   };
